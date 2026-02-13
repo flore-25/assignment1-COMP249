@@ -9,7 +9,7 @@ public abstract class Accommodation {
 	
 	public Accommodation() {//default constructor
 		
-		accommodationID = "";
+		accommodationID = "A"+idCounter;
 		idCounter = 4001;
 		name = "";
 		locationCity = "";
