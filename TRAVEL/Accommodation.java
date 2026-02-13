@@ -42,18 +42,6 @@ public abstract class Accommodation {
 		return accommodationID;
 	}
 
-	public void setAccommodationID(String accommodationID) {
-		this.accommodationID = accommodationID;
-	}
-
-	public int getIdCounter() {
-		return idCounter;
-	}
-
-	public void setIdCounter(int idCounter) {
-		this.idCounter = idCounter;
-	}
-
 	public String getName() {
 		return name;
 	}
