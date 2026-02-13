@@ -2,7 +2,7 @@ package TRAVEL;
 
 public abstract class Accommodation {
 	private String accommodationID;
-	private int idCounter = 4001;
+	private static int idCounter = 4001;
 	private String name;
 	private String locationCity;
 	private double pricePerNight;
