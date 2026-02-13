@@ -17,7 +17,7 @@ public abstract class Accommodation {
 		idCounter++; // ID has to be incremented in each constructor!
 	}
 	
-	public Accommodation (int idCounter, String name, String locationCity, double pricePerNight) { //parameterized constructor
+	public Accommodation (String name, String locationCity, double pricePerNight) { //parameterized constructor
 		accommodationID = "A"+idCounter;
 		this.name = name;
 		this.locationCity = locationCity;
