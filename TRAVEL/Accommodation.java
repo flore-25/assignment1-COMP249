@@ -7,23 +7,34 @@ public abstract class Accommodation {
 	private String locationCity;
 	private double pricePerNight;
 	
-	public Accommodation() {
+	public Accommodation() {//default constructor
 		
 		accommodationID = "";
 		idCounter = 4001;
 		name = "";
 		locationCity = "";
 		pricePerNight = 0;
-		idCounter++; // ID has to be incremented in each constructor
+		idCounter++; // ID has to be incremented in each constructor!
 	}
 	
-	public Accommodation (String accommodationID, int idCounter) {
+	public Accommodation (String accommodationID, int idCounter, String name, String locationCity, double pricePerNight) { //parameterized constructor
 		accommodationID = "A"+idCounter;
+		this.name = name;
+		this.locationCity = locationCity;
+		this.pricePerNight = pricePerNight;
 		idCounter++;
 		
 		
 	}
 	
+	public Accommodation (Accommodation other) { //copy constructor
+		accommodationID = "A"+idCounter;
+		this.name = other.name;
+		this.locationCity = other.locationCity;
+		this.pricePerNight = other.pricePerNight;
+		idCounter++;
+		
+	}
 	
 	public abstract double calculateCost(int nbOfDays);
 
@@ -67,19 +78,32 @@ public abstract class Accommodation {
 		this.pricePerNight = pricePerNight;
 	}
 	
-	public boolean equals (Accommodation obj) {
-		if (this == obj) {
-			return true;
-		}
-		else 
-			return false;
+	public String toString(){
+		return ("Name: "+ name +"/n"
+				+"ID type: " +accommodationID+ "/n"
+				+"ID number: " + idCounter+"/n"
+				+"City: "+ locationCity+ "/n"
+				+"Price per night: " +pricePerNight);
 	}
+	public boolean equals (Accommodation other) {
+		
+		if (other == null) 
+			return false;
+		
+		if (this.getClass()!= other.getClass()) 
+			return false;
+		
+		if (this.name.equalsIgnoreCase(other.name)&& this.locationCity.equalsIgnoreCase(other.locationCity)&& this.pricePerNight == other.pricePerNight) 
+			return true;
 	
-	public String toString();
+		return false;
+
+	
+	}
 	
 		
-
-	}
+}
+	
 
 	
 	
