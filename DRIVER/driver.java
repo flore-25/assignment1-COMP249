@@ -15,7 +15,7 @@ public class driver {
 		//------------------------------------------------------------------------------------------------------------ 
 		//Assignment 1 - COMP 249
 		//Question: Driver for SmartTravel program
-		//Written by: Florence Simard (40136888) and Angelina (studentID)
+		//Written by: Florence Simard (40136888) and Angelina Yajaira Montano (40344724)
 		//------------------------------------------------------------------------------------------------------------ 
 		
 		
