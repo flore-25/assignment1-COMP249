@@ -9,8 +9,8 @@ public class Hostel extends Accommodation {
 		nbSharedBedsPerRoom = 0;
 	}
 
-	public Hostel (String accommodationID, int idCounter, String name, String locationCity, double pricePerNight,int nbSharedBedsPerRoom) { //parameterized constructor
-		super(accommodationID, idCounter, name, locationCity, pricePerNight); //calling the parameterized constructor of the Accommodation class
+	public Hostel (String name, String locationCity, double pricePerNight,int nbSharedBedsPerRoom) { //parameterized constructor
+		super(name, locationCity, pricePerNight); //calling the parameterized constructor of the Accommodation class
 		this.nbSharedBedsPerRoom = nbSharedBedsPerRoom ;
 	}
 	public double calculateCost(int nbOfDays) { 
