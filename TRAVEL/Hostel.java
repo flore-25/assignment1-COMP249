@@ -13,16 +13,18 @@ public class Hostel extends Accommodation {
 		super(name, locationCity, pricePerNight); //calling the parameterized constructor of the Accommodation class
 		this.nbSharedBedsPerRoom = nbSharedBedsPerRoom ;
 	}
-	public double calculateCost(int nbOfDays) { 
-		return 0;
-	}
-
+	
 	public int getNbSharedBedsPerRoom() {
 		return nbSharedBedsPerRoom;
 	}
 
 	public void setNbSharedBedsPerRoom(int nbSharedBedsPerRoom) {
 		this.nbSharedBedsPerRoom = nbSharedBedsPerRoom;
+		
+	}
+	
+	public double calculateCost(int nbOfDays) {
+		return super.getPricePerNight()*nbOfDays*0.10;
 	}
 	@Override
 	public String toString() {
@@ -30,15 +32,18 @@ public class Hostel extends Accommodation {
 	+ "Number of shared beds per room: "+ nbSharedBedsPerRoom; //calls the parent's (Accommodation) toString
 	}
 	@Override
-	public boolean equals (Hostel other) {
-		return super.equals(Accommodation other);
+	public boolean equals (Accommodation other) {
+		
 		if (other == null) 
 			return false;
 		
+		if (!super.equals(other)
+			return false;)
+			
 		if (this.getClass()!= other.getClass()) 
 			return false;
 		
-		if (this.name.equalsIgnoreCase(other.name)&& this.locationCity.equalsIgnoreCase(other.locationCity)&& this.pricePerNight == other.pricePerNight) 
+		if (super.getName().equalsIgnoreCase(other.name)&& super.getLocationCity().equalsIgnoreCase(other.locationCity)&& super.getPricePerNight() == other.pricePerNight) 
 			return true;
 	
 		return false;
