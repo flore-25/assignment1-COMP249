@@ -1,11 +1,11 @@
 package DRIVER;
 
 import java.util.Scanner;
-
 import CLIENT.Client;
 import TRAVEL.Accommodation;
 import TRAVEL.Transport;
 import TRAVEL.Trip;
+import TRAVEL.Hotel;
 
 public class driver {
 
@@ -195,6 +195,36 @@ public class driver {
 						break;
 					case 4:
 						//subMenu accommodation management
+						int subMenuAccommodation;
+						do{
+							System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
+									+ "| You are managing accommodations, what do you want to do?                                            |\n"
+									+ "| 1  >> add an accommodation                                                                           |\n"
+									+ "| 2  >> remove an accommodation                                                                          |\n"                            
+									+ "| 4  >> list all accommodation types (Hotel,Hostel)                                                                      |\n"     
+									+ "| 5  >> return to main menu                                                                    |\n" 
+									+ "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+							System.out.print("Please enter your choice and press <Enter>: ");
+							subMenuAccommodation = keyboard.nextInt();
+							
+							switch (subMenuAccommodation) {
+							case 1:
+								//subMenuAccommodation add an accommodation
+								System.out.print("What is the type of the accommodation? ");
+								String accommodationType=keyboard.next();
+								System.out.print("What is the name of the accommodation? ");
+								String name=keyboard.next();
+								System.out.print("What is the location? ");
+								String locationCity=keyboard.next();
+								System.out.print("What is the price per night? ");
+								double pricePerNight=keyboard.nextDouble();
+								//parse through array and overwrite first null object
+								for (int i=0;i<accommodation.length;i++) {
+									if (accommodation[i]==null) {
+										accommodation[i]= new Hotel(name,locationCity,pricePerNight);
+										}}
+										break;
+						
 						break;
 					case 5:
 						//additionnal operations
@@ -225,4 +255,4 @@ public class driver {
 		
 
 }
-}
+

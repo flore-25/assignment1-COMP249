@@ -37,13 +37,13 @@ public class Hostel extends Accommodation {
 		if (other == null) 
 			return false;
 		
-		if (!super.equals(other)
-			return false;)
+		if (!super.equals(other))
+			return false;
 			
 		if (this.getClass()!= other.getClass()) 
 			return false;
 		
-		if (super.getName().equalsIgnoreCase(other.name)&& super.getLocationCity().equalsIgnoreCase(other.locationCity)&& super.getPricePerNight() == other.pricePerNight) 
+		if (super.getName().equalsIgnoreCase(other.getName())&& super.getLocationCity().equalsIgnoreCase(other.getLocationCity())&& super.getPricePerNight() == other.getPricePerNight()) 
 			return true;
 	
 		return false;
