@@ -34,7 +34,7 @@ public abstract class Accommodation {
 		idCounter++;
 		
 	}
-	
+	//this method has to be defined in Hotel and Hostel child classes
 	public abstract double calculateCost(int nbOfDays);
 
 	public String getAccommodationID() {
@@ -67,10 +67,10 @@ public abstract class Accommodation {
 	
 	public String toString(){
 		return ("Name: "+ name +"/n"
-				+"ID type: " +accommodationID+ "/n"
-				+"ID number: " + idCounter+"/n"
-				+"City: "+ locationCity+ "/n"
-				+"Price per night: " +pricePerNight);
+				+"ID type: " + accommodationID + "/n"
+				+"ID number: " + idCounter +"/n"
+				+"City: "+ locationCity + "/n"
+				+"Price per night: " + pricePerNight);
 	}
 	public boolean equals (Accommodation other) {
 		
