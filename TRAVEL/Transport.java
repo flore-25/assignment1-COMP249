@@ -41,7 +41,7 @@ public abstract class Transport {
 	}
 	
 	//this method has to be defined in Bus, Train and Flight child classes
-	public abstract double calculateCost();
+	public abstract double calculateCost(int km);
 
 
 

@@ -22,7 +22,7 @@ public class Hostel extends Accommodation {
 		this.nbSharedBedsPerRoom = nbSharedBedsPerRoom;
 		
 	}
-	
+	@Override
 	public double calculateCost(int nbOfDays) {
 		return super.getPricePerNight()*nbOfDays*0.10;
 	}

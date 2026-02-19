@@ -18,7 +18,7 @@ public class Hotel extends Accommodation {
 		return starRating;
 	}
 		
-	
+	@Override
 	public double calculateCost(int nbOfDays) {
 		return super.getPricePerNight()*nbOfDays*0.15;
 	}
