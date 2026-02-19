@@ -14,6 +14,12 @@ public class Hostel extends Accommodation {
 		this.nbSharedBedsPerRoom = nbSharedBedsPerRoom ;
 	}
 	
+	
+	public Hostel (Hostel other) {//copy constructor
+		super(other);
+		this.nbSharedBedsPerRoom = other.nbSharedBedsPerRoom ;
+	}
+	
 	public int getNbSharedBedsPerRoom() {
 		return nbSharedBedsPerRoom;
 	}
@@ -32,22 +38,25 @@ public class Hostel extends Accommodation {
 	+ "Number of shared beds per room: "+ nbSharedBedsPerRoom; //calls the parent's (Accommodation) toString
 	}
 	@Override
-	public boolean equals (Accommodation other) {
+    public boolean equals(Accommodation other) {
 		
 		if (other == null) 
 			return false;
 		
-		if (!super.equals(other))
-			return false;
-			
-		if (this.getClass()!= other.getClass()) 
+		else if (!super.equals(other))
 			return false;
 		
-		if (super.getName().equalsIgnoreCase(other.getName())&& super.getLocationCity().equalsIgnoreCase(other.getLocationCity())&& super.getPricePerNight() == other.getPricePerNight()) 
-			return true;
-	
-		return false;
+		else if (getClass()!= other.getClass())
+			
+			return false;
+		else
+		{ 
+			Hostel o = (Hostel) other;
+			return this.nbSharedBedsPerRoom== o.nbSharedBedsPerRoom;
+		}
 
+	
+	
 	
 	}
 	

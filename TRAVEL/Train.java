@@ -10,14 +10,35 @@ public class Train extends Transport {
 			seatClass = ' ';
 		}
 
-		public Train (String companyName, String departureCity, String arrivalCity) { //parameterized constructor
+		public Train (String companyName, String departureCity, String arrivalCity,String trainType,char seatClass) { //parameterized constructor
 			super(companyName, departureCity, arrivalCity); //calling the parameterized constructor of the Transport class
 			this.trainType = trainType;
 			this.seatClass = seatClass;
 		}
 		
-	
+		public Train(Train other) {//copy constructor
+			super(other);
+			this.trainType= other.trainType;
+			this.seatClass= other.seatClass;
+		}
 			
+			
+		public String getTrainType() {
+			return trainType;
+		}
+
+		public void setTrainType(String trainType) {
+			this.trainType = trainType;
+		}
+
+		public char getSeatClass() {
+			return seatClass;
+		}
+
+		public void setSeatClass(char seatClass) {
+			this.seatClass = seatClass;
+		}
+
 		@Override
 		public double calculateCost(int km) {
 			return 0.28*km; //fictional value for fare price
@@ -29,26 +50,25 @@ public class Train extends Transport {
 		+ "Seat class: "+ seatClass; //calls the parent's (Transport) toString
 		}
 		@Override
-		public boolean equals (Transport other) {
+		public boolean equals(Transport other) {
 			
 			if (other == null) 
 				return false;
 			
-			if (!super.equals(other))
+			else if (!super.equals(other))
 				return false;
+			
+			else if(getClass()!= other.getClass())
 				
-			if (this.getClass()!= other.getClass()) 
 				return false;
-			
-			if (this.getCompanyName().equalsIgnoreCase(other.getCompanyName())&& this.getDepartureCity().equalsIgnoreCase(other.getDepartureCity())&& this.getArrivalCity() == other.getArrivalCity())
-				return true;
-		
-			return false;
+			else
+			{ 
+				Train o = (Train) other;
+				return this.trainType == o.trainType && this.seatClass == o.seatClass;
+			}
 
 		
-		}
 		
-			
-	}
-
+		}}
+		
 

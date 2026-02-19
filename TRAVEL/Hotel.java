@@ -14,6 +14,10 @@ public class Hotel extends Accommodation {
 		this.starRating = starRating ;
 	}
 	
+	public Hotel (Hotel other) {//copy constructor
+		super(other);
+		this.starRating = other.starRating ;
+	}
 	public int getStarRating() {
 		return starRating;
 	}
