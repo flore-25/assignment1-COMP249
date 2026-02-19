@@ -10,8 +10,7 @@ public abstract class Accommodation {
 	public Accommodation() {//default constructor
 		
 		accommodationID = "A"+idCounter;
-	
-		name = "";
+        name = "";
 		locationCity = "";
 		pricePerNight = 0;
 		idCounter++; // ID has to be incremented in each constructor!

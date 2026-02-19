@@ -198,9 +198,9 @@ public class driver {
 						int subMenuAccommodation;
 						do{
 							System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
-									+ "| You are managing accommodations, what do you want to do?                                            |\n"
+									+ "| You are managing accommodations, what do you want to do?                                             |\n"
 									+ "| 1  >> add an accommodation                                                                           |\n"
-									+ "| 2  >> remove an accommodation                                                                          |\n"                            
+									+ "| 2  >> remove an accommodation                                                                        |\n"                            
 									+ "| 4  >> list all accommodation types (Hotel,Hostel)                                                                      |\n"     
 									+ "| 5  >> return to main menu                                                                    |\n" 
 									+ "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
@@ -218,13 +218,46 @@ public class driver {
 								String locationCity=keyboard.next();
 								System.out.print("What is the price per night? ");
 								double pricePerNight=keyboard.nextDouble();
-								//parse through array and overwrite first null object
-								for (int i=0;i<accommodation.length;i++) {
-									if (accommodation[i]==null) {
-										accommodation[i]= new Hotel(name,locationCity,pricePerNight);
-										}}
+								System.out.print("There are two types of accommodation available: Hotel or Hostel. Which type do you wish to add? "
+										+ "+ Please enter your choice and press <Enter>: ");
+								String accommodationChoice = keyboard.next();
+								if (accommodationChoice.equalsIgnoreCase("Hotel")) {
+									System.out.print("What is the star rating? ");
+									int starRating =keyboard.nextInt();
+									//parse through array and overwrite first null object
+									for (int i=0;i<accommodation.length;i++) {
+										if (accommodation[i]==null) {
+											accommodation[i]= new Hotel(name,locationCity,pricePerNight,starRating);
+											
+								}}}
+								else if (accommodationChoice.equalsIgnoreCase("Hostel")) {
+									System.out.print("What is the number of shared beds per room? ");
+									int nbSharedBedsPerRoom=keyboard.nextInt();
+									//parse through array and overwrite first null object
+									for (int i=0;i<accommodation.length;i++) {
+										if (accommodation[i]==null) {
+											accommodation[i]= new Hotel(name,locationCity,pricePerNight,nbSharedBedsPerRoom);
+										}}}
+								
+				
+			
 										break;
-						
+							case 2:
+								//subMenuAccommodation remove an accommodation
+								System.out.print("What is the id of the accommodation you want to remove? ");
+								String accommodationIDToRemove =keyboard.next();
+								for (int i=0;i<accommodation.length;i++) {
+									if (accommodation[i].getAccommodationID().equalsIgnoreCase(accommodationIDToRemove)) {
+										accommodation[i]=null;
+									}}
+										break;
+						    case 3:
+						    	//subMenuAccommodation list all accommodation types (Hotel,Hostel)
+						    	for (int i=0;i<accommodation.length;i++) {
+									if (accommodation[i]!=null) {
+										System.out.println(accommodation[i]);
+									}
+								}		
 						break;
 					case 5:
 						//additionnal operations
