@@ -28,7 +28,7 @@ public class Hotel extends Accommodation {
 	}
 	@Override
 	public String toString() {
-	return super.toString()+ "/n " 
+	return super.toString()+ "\n " 
 	+ "Star rating: "+ starRating; //calls the parent's (Accommodation) toString
 	}
 	@Override

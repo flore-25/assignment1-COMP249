@@ -51,7 +51,7 @@ public class driver {
 							+ "| 2  >> Trip Management                                                                        |\n"
 							+ "| 3  >> Transportation Management                                                              |\n"   
 							+ "| 4  >> Accommodation Management                                                               |\n"                           
-							+ "| 5  >> additional Operations                                                                  |\n"                           
+							+ "| 5  >> Additional Operations                                                                  |\n"                           
 							+ "| 6  >> Generate Visualization                                                                 |\n"                           
 							+ "| 7  >> Quit this menu                                                                         |\n"
 							+ "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
@@ -204,8 +204,8 @@ public class driver {
 									+ "| You are managing transportation options, what do you want to do?                                             |\n"
 									+ "| 1  >> add a transportation option                                                                         |\n"
 									+ "| 2  >> remove a transportation option                                                                        |\n"                            
-									+ "| 4  >> list all transportation options by type (Flight, Train, Bus)                                                   |\n"     
-									+ "| 5  >> return to main menu                                                                            |\n" 
+									+ "| 3  >> list all transportation options by type (Flight, Train, Bus)                                                   |\n"     
+									+ "| 4  >> return to main menu                                                                            |\n" 
 									+ "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 							System.out.print("Please enter your choice and press <Enter>: ");
 							subMenuTransportation = keyboard.nextInt();
@@ -354,13 +354,13 @@ public class driver {
 				break;
 				
 				}
-			case 2: //mainMenu testing mode
+			case 2: //mainMenu testing mode (predefined scenario)
+				
 				{   //creating objects with fictional values
 					Client c1 = new Client("Alice", "Johnson", "alice.johnson@example.com");
-				
 				    Client c2 = new Client("Mark", "Thompson", "mark.thompson@example.com");
 				    Client c3 = new Client("Sophie", "Williams", "sophie.williams@example.com");
-				    
+		
 				    Trip t1 = new Trip("Paris",7,1200.0,c1);
 				    Trip t2 = new Trip("New York",5,900.0,c2);
 				    Trip t3 = new Trip("London",10,2000.0,c3);
@@ -368,6 +368,7 @@ public class driver {
 				    
 				    Flight f1 = new Flight("AirExpress","Montreal", "Sydney", "AirExpress", 23.5 );
 				    Flight f2 = new Flight("SkyHigh", "Laval", "Tokyo", "SkyHigh", 25.5);
+				    Flight f3 = new Flight("SkyHigh", "Laval", "Tokyo", "SkyHigh", 25.5);
 				    
 				    Train train1 = new Train("USATrack","Boston","Los Angeles","high-speed",'E');
 				    Train train2 = new Train("ViaRail","Quebec","Vancouver", "regional", 'B');
@@ -384,6 +385,7 @@ public class driver {
 				    Hostel hostel2 = new Hostel("Youth Lodge", "Madrid", 25.0, 12);
 				    
 				    //printing all created objects with toString()
+				    
 				    System.out.println(c1.toString());
 				    System.out.println(c2.toString());
 				    System.out.println(c3.toString());
@@ -394,6 +396,7 @@ public class driver {
 				    
 				    System.out.println(f1.toString());
 				    System.out.println(f2.toString());
+				    System.out.println(f3.toString());
 				    
 				    System.out.println(train1.toString());
 				    System.out.println(train2.toString());
@@ -406,8 +409,36 @@ public class driver {
 				    
 				    System.out.println(hostel1.toString());
 				    System.out.println(hostel2.toString());
+				 
+				    //compare objects from different classes.
 				    
+				    
+				  
+				    c1.equals(t1);
+
 				    train1.equals(b1);
+				    train2.equals(b2);
+				    
+				    //compare objects of the same class with and with different attributes and with identical attributes
+				    
+				    f1.equals(f2);
+				    f2.equals(f3);
+				    
+				    //Fill arrays for: Clients, Tripps, Transportation options, Accommodations
+				    
+				    client = {c1, c2,c3};
+				    
+				    trip = {t1,t2};
+				    
+				    transport = {f1,f2,train1,train2,b1,b2};
+				    
+				    accommodation = {hotel1, hotel2, hostel1, hostel2};
+				    
+				    double totalCostForTransport;
+				    for (int i =0; i < transport.length;i++) {
+				    	
+				    	totalCostForTransport += transport[i].calculateCost(1050);
+				    }
 				    
 				}
 				
@@ -416,7 +447,6 @@ public class driver {
 				
 				
 			}
-				//mainMenu testing mode
 				
 				break;
 				}

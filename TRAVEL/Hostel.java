@@ -34,7 +34,7 @@ public class Hostel extends Accommodation {
 	}
 	@Override
 	public String toString() {
-	return super.toString()+ "/n " 
+	return super.toString()+ "\n " 
 	+ "Number of shared beds per room: "+ nbSharedBedsPerRoom; //calls the parent's (Accommodation) toString
 	}
 	@Override
@@ -52,7 +52,7 @@ public class Hostel extends Accommodation {
 		else
 		{ 
 			Hostel o = (Hostel) other;
-			return this.nbSharedBedsPerRoom== o.nbSharedBedsPerRoom;
+			return this.nbSharedBedsPerRoom == o.nbSharedBedsPerRoom;
 		}
 
 	
