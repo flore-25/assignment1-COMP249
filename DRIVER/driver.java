@@ -25,6 +25,7 @@ public class driver {
 		
 		
 		int menuChoice;
+		int subMenuChoice;
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Welcome to SmartTravel ");
 		Client [] client = new Client[20];
@@ -44,7 +45,7 @@ public class driver {
 			switch (menuChoice) {
 			case 1:{
 				//mainMenu actual program
-				int subMenuChoice;
+				subMenuChoice=0;
 				do {
 					System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
 							+ "| 1  >> Client Management                                                                      |\n"
