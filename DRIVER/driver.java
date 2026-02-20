@@ -424,13 +424,31 @@ public class driver {
 										break;
 						    case 3:
 						    	//subMenuTransportation  list all transportation options by type (Flight, Train, Bus) 
-						    	for (int i=0;i<transport.length;i++) {
-									if (transport[i]!=null) {
-										System.out.println(transport[i]);
-										break;
-									}break;
-								}		
+						    	Flight [] flight = new Flight[10];
+						    	Train [] train = new Train [10];
+						    	Bus [] bus = new Bus [10];
+						    	
+						 
+						    	System.out.println("ALL FLIGHTS");
+						    	for (int i=0; i<transport.length;i++) {
+						    		if (transport[i].getClass()==Flight.class)
+						    			System.out.println(transport[i]);
+						    	}
+						    	System.out.println("ALL TRAINS");
+						    	for (int i=0; i<transport.length;i++) {
+						    		if (transport[i].getClass()==Train.class)
+						    			System.out.println(transport[i]);
+						    	}
+						    	System.out.println("ALL BUSES");
+						    	for (int i=0; i<transport.length;i++) {
+						    		if (transport[i].getClass()==Bus.class)
+						    			System.out.println(transport[i]);
 
+						    	}
+						    	
+						    		
+						    		
+										
 						break;
 					case 4:
 						//subMenu accommodation management
@@ -490,12 +508,18 @@ public class driver {
 										break;
 						    case 3:
 						    	//subMenuAccommodation list all accommodation types (Hotel,Hostel)
-						    	for (int i=0;i<accommodation.length;i++) {
-									if (accommodation[i]!=null) {
-										System.out.println(accommodation[i]);
-									}
-									break;
-								}		
+						    	System.out.println("ALL HOTELS");
+						    	for (int i=0; i<accommodation.length;i++) {
+						    		if (accommodation[i].getClass()==Hotel.class)
+						    			System.out.println(accommodation[i]);
+						    	}
+						    	System.out.println("ALL HOSTELS");
+						    	for (int i=0; i<accommodation.length;i++) {
+						    		if (accommodation[i].getClass()==Hostel.class)
+						    			System.out.println(accommodation[i]);
+						    	}
+						    	
+						    			
 						break;
 					case 5:
 						//additionnal operations
