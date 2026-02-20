@@ -192,7 +192,162 @@ public class driver {
 						} while (subsubMenuChoice!=5);
 					case 2:
 						//subMenu trip management
-						
+						//we are in option 2 of subMenu : trip management
+						subsubMenuChoice=0;
+						do{
+							System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
+									+ "| You are managing trips, what do you want to do?                                              |\n"
+									+ "| 1  >> Create a trip                                                                          |\n"
+									+ "| 2  >> Edit trip information                                                                  |\n"   
+									+ "| 3  >> Cancel a trip                                                                          |\n"                           
+									+ "| 4  >> list all trips                                                                         |\n" 
+									+ "| 5  >> list all trips for a specific client                                                   |\n"    
+									+ "| 6  >> return to precedent menu                                                               |\n" 
+									+ "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+							System.out.print("Please enter your choice and press <Enter>: ");
+							subsubMenuChoice = keyboard.nextInt();
+
+							switch (subsubMenuChoice) {
+							case 1:
+								//create trip
+								System.out.print("What is the trip destination? ");
+								String destination = keyboard.next();
+								System.out.print("What is the trip duration (in days)? ");
+								int duration = keyboard.nextInt();
+								System.out.print("What is the base price? ");
+								double basePrise = keyboard.nextDouble();
+								System.out.print("What is the id of the client associated to that trip? ");
+								String cId=keyboard.next();
+								boolean flag=false;
+								
+								for (int i=0; i<client.length; i++) {
+								    if ((client[i]!=null) && (client[i].getClientId().equalsIgnoreCase(cId))) {
+								        for (int j= 0; j<trip.length; j++) {
+								            if (trip[j]==null) {
+								                trip[j]=new Trip(destination,duration,basePrise,client[i]);
+								                flag = true;
+								                break;
+								            }
+								        }
+								        break; // also exit the i loop once client is found
+								    }
+								}
+								if (!flag) {
+								    System.out.println("No matching client found or trip array is full.");
+								}
+
+								break;
+							case 2:
+								//edit trip subsubsubmenu
+								subsubsubmenu=0;
+								System.out.print("What is the id of the trip you want to edit? ");
+								String editTripId =keyboard.next();
+								do {
+								System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
+										+ "| You are currently editing trip #"+editTripId+"                                                 |\n"
+										+ "| 1  >> edit destination                                                                       |\n"
+										+ "| 2  >> edit duration of the trip                                                              |\n"   
+										+ "| 3  >> edit base price                                                                        |\n"   
+										+ "| 4  >> edit associated client                                                                 |\n"                           
+										+ "| 5  >> I'm done editing trip #"+editTripId+"                                                    |\n" 
+										+ "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+								System.out.print("What do you want to do? ");
+								subsubsubmenu=keyboard.nextInt(); 
+								switch (subsubsubmenu){
+									case 1:
+										//edit destination
+										System.out.print("What is the new destination ? ");
+										String newDestination =keyboard.next();
+										for (int i=0;i<trip.length;i++) {
+											if (trip[i]!=null) {
+													if (trip[i].getTripId().equalsIgnoreCase(editTripId)) {
+														trip[i].setDestination(newDestination);;
+														break;}
+													break;
+											}
+										}
+										break;
+										
+									case 2:
+										//edit duration of the trip 
+										System.out.print("What is the new duration of the trip (in days) ? ");
+										int newDuration =keyboard.nextInt();
+										for (int i=0;i<trip.length;i++) {
+											if (trip[i]!=null) {
+												if (trip[i].getTripId().equalsIgnoreCase(editTripId)) {
+												trip[i].setDurationInDay(newDuration);
+												break;
+												}
+											} 
+										}
+										break;
+										
+									case 3:
+										//edit base price
+										System.out.print("What is the new base price for this trip ? ");
+										double newBasePrise =keyboard.nextDouble();
+										for (int i=0;i<trip.length;i++) {
+											if (trip[i]!=null) {
+												if (trip[i].getTripId().equalsIgnoreCase(editTripId)) {
+													trip[i].setBasePrice(newBasePrise);
+													break;}
+											}
+										}
+										break;
+										
+									case 4:
+										//edit associated client 
+										System.out.print("What is the id of the client to be associated with that trip ? ");
+										String clientID=keyboard.next();
+										
+										for (int i=0;i<trip.length;i++) {
+											if ((trip[i]!=null)&&(trip[i].getTripId().equalsIgnoreCase(editTripId))) {
+												for (int j=0;j<client.length;j++) {
+													if ((client[j]!=null)&&(client[j].getClientId().equalsIgnoreCase(clientID))) {
+														trip[i].setClient(client[j]);
+													}
+												}
+											}
+										}
+										break;
+									case 5: subsubsubmenu=5;
+								}
+				
+								} while (subsubsubmenu!=5);
+								break;
+							case 3:
+								//cancel trip (submenu)
+								System.out.print("What is the id of the trip you want to cancel? ");
+								String tripId=keyboard.next();
+								for (int i=0;i<trip.length;i++) {
+									if ((trip[i]!=null)&&(trip[i].getTripId().equalsIgnoreCase(tripId))) {
+										trip[i]=null;
+										}
+									}
+								break;
+							case 4:
+								//list all trips
+								for (int i=0;i<trip.length;i++) {
+									if (trip[i]!=null) {
+										System.out.println("TRIP "+trip[i].getTripId()+"\n"+trip[i]);
+										System.out.println();}
+									}
+								break;
+							case 5:
+								//list all trips for a specific client
+									System.out.print("What is the id of the client you want to see all trips associated to this client? ");
+									String clientId=keyboard.next();
+									System.out.println("\nTRIPS OF CLIENT "+clientId);
+									for (int i=0;i<trip.length;i++) {
+										if (trip[i]!=null) {
+											if (trip[i].getClient().getClientId().equalsIgnoreCase(clientId)) {
+											System.out.println("TRIP "+trip[i].getTripId()+"\n"+trip[i]);
+											System.out.println();}
+									}}
+								break;
+							case 6: subsubMenuChoice=6;
+							}
+						} while (subsubMenuChoice!=6);
 						
 						break;
 					case 3:
