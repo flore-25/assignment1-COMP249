@@ -263,6 +263,7 @@ public class driver {
 								for (int i=0;i<transport.length;i++) {
 									if (transport[i].getTransportID().equalsIgnoreCase(transportIDToRemove)) {
 										transport[i]=null;
+										break;
 									}}
 										break;
 						    case 3:
