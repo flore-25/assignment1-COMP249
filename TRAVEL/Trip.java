@@ -94,7 +94,7 @@ public class Trip {
 	}
 	
 	public String toString() {
-		return("destination: "+destination+"/nDuration of the trip: "+durationInDay+"/nBase price: "+basePrice+"/n Client: "+client.toString());
+		return("Destination: "+destination+"/nDuration of the trip: "+durationInDay+"/nBase price: "+basePrice+"/n Client: "+client.toString());
 		
 	}
 	

@@ -87,10 +87,10 @@ public abstract class Transport {
 	
 	
 	public String toString(){
-		return ("Company name: "+ companyName +"/n"
-				+"ID type: " + transportID + "/n"
-				+"ID number: " + idCounter +"/n"
-				+"Departure city: "+ departureCity + "/n"
+		return ("Company name: "+ companyName +"\n"
+				+"ID type: " + transportID + "\n"
+				+"ID number: " + idCounter +"\n"
+				+"Departure city: "+ departureCity + "\n"
 				+"Arrival city: " + arrivalCity);
 	}
 	public boolean equals (Transport other) {

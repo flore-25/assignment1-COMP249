@@ -29,32 +29,37 @@ public class Flight extends Transport {
 	}
 	@Override
 	public String toString() {
-	return super.toString()+ "/n " 
-	+ "Name of the airline: "+ airlineName
+	return super.toString()+ "\n " 
+	+ "Name of the airline: "+ airlineName+ "\n"
 	+ "Luggage allowance: "+ luggageAllowance; //calls the parent's (Transport) toString
 	}
 	@Override
-	public boolean equals (Transport other) {
+	public boolean equals(Transport other) {
 		
 		if (other == null) 
 			return false;
 		
-		if (!super.equals(other))
-			return false;
-			
-		if (this.getClass()!= other.getClass()) 
+		else if (!super.equals(other))
 			return false;
 		
-		if (this.getCompanyName().equalsIgnoreCase(other.getCompanyName())&& this.getDepartureCity().equalsIgnoreCase(other.getDepartureCity())&& this.getArrivalCity() == other.getArrivalCity())
-			return true;
-	
-		return false;
+		else if(getClass()!= other.getClass())
+			
+			return false;
+		else
+		{ 
+			Flight o = (Flight) other;
+			return this.airlineName == o.airlineName  && this.luggageAllowance == o.luggageAllowance;
+		}
 
 	
-	}
 	
-		
-}
+	}}
+	
+
+	
+	
+	
+
 
 
 

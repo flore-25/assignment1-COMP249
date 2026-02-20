@@ -9,7 +9,7 @@ public class Client {
 	private String emailAddress;
 	
 
-	//make sure EACH constructors increment idCounter, AFTER AFTER assigning clientID
+	//make sure EACH constructors increment idCounter,AFTER assigning clientID
 	public Client() {
 		clientID="C"+idCounter;
 		firstName=null;

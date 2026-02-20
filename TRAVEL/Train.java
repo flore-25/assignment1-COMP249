@@ -45,8 +45,8 @@ public class Train extends Transport {
 		}
 		@Override
 		public String toString() {
-		return super.toString()+ "/n " 
-		+ "Train type: "+ trainType
+		return super.toString()+ "\n " 
+		+ "Train type: "+ trainType + "\n " 
 		+ "Seat class: "+ seatClass; //calls the parent's (Transport) toString
 		}
 		@Override
