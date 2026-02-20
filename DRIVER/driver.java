@@ -410,9 +410,7 @@ public class driver {
 				    System.out.println(hostel1.toString());
 				    System.out.println(hostel2.toString());
 				 
-				    //compare objects from different classes.
-				    
-				    
+				    //compare objects from different classes
 				  
 				    c1.equals(t1);
 
@@ -426,13 +424,23 @@ public class driver {
 				    
 				    //Fill arrays for: Clients, Tripps, Transportation options, Accommodations
 				    
-				    client = {c1, c2,c3};
+				    Client [] clientTest = new Client [10];
 				    
-				    trip = {t1,t2};
+				    client = {c1,c2,c3};
+				  
 				    
-				    transport = {f1,f2,train1,train2,b1,b2};
+				    Trip [] tripTest = new Trip[10];
 				    
-				    accommodation = {hotel1, hotel2, hostel1, hostel2};
+				    trip  = {t1,t2,t3};
+				  
+				    
+				    Transport[] transportTest = new Transport[15];
+				    
+				    transportTest = {f1,f2,train1,train2,b1,b2};
+				    
+				    Accommodation [] accommodationTest = new Accommodation[15];
+				    
+				    accommodationTest = {hotel1, hotel2, hostel1, hostel2};
 				    
 				    double totalCostForTransport;
 				    for (int i =0; i < transport.length;i++) {
@@ -440,6 +448,10 @@ public class driver {
 				    	totalCostForTransport += transport[i].calculateCost(1050);
 				    }
 				    
+				    double totalCostForAccommodation;
+                    for (int i =0; i < accommodation.length;i++) {
+				    	totalCostForAccommodation += accommodation[i].calculateCost(15);
+				    }
 				}
 				
 				}
