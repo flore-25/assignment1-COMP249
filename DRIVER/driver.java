@@ -424,30 +424,28 @@ public class driver {
 										break;
 						    case 3:
 						    	//subMenuTransportation  list all transportation options by type (Flight, Train, Bus) 
-						    	Flight [] flight = new Flight[10];
-						    	Train [] train = new Train [10];
-						    	Bus [] bus = new Bus [10];
+						    	for (int i=0; i<transport.length;i++) {
+						    		
 						    	
-						 
+						    	if(transport[i]!= null) {
+						    		
+						    	
 						    	System.out.println("ALL FLIGHTS");
-						    	for (int i=0; i<transport.length;i++) {
-						    		if (transport[i].getClass()==Flight.class)
+						        if (transport[i].getClass()==Flight.class) {
 						    			System.out.println(transport[i]);
-						    	}
+						    	
 						    	System.out.println("ALL TRAINS");
-						    	for (int i=0; i<transport.length;i++) {
-						    		if (transport[i].getClass()==Train.class)
+						       if (transport[i].getClass()==Train.class)
 						    			System.out.println(transport[i]);
-						    	}
+						    	
 						    	System.out.println("ALL BUSES");
-						    	for (int i=0; i<transport.length;i++) {
-						    		if (transport[i].getClass()==Bus.class)
+						    	if (transport[i].getClass()==Bus.class)
 						    			System.out.println(transport[i]);
 
 						    	}
 						    	
-						    		
-						    		
+						    	}
+						    	}	
 										
 						break;
 					case 4:
@@ -523,7 +521,18 @@ public class driver {
 						break;
 					case 5:
 						//additionnal operations
+						
+						//create a deep copy of transportation array
+						
+						Transport [] transportDeepCopy = copyTransportArray(transport);
+						
+						if (transportDeepCopy[0] instanceof Flight)
+						
+						//create a deep copy of accommodation array
+
+						
 						break;
+							
 					case 6:
 						//subMenu visualization
 						break;
@@ -604,43 +613,43 @@ public class driver {
 				    f1.equals(f2);
 				    f2.equals(f3);
 				    
-				    //Fill arrays for: Clients, Tripps, Transportation options, Accommodations
+				    //Fill arrays for: Clients, Trips, Transportation options, Accommodations
 				    
 				    Client [] clientTest = new Client [10];
 				    
-				    client = {c1,c2,c3};
-				  
+				    clientTest [0] = c1;
+				    clientTest [1] = c2;
+				    clientTest [2] = c2;
 				    
 				    Trip [] tripTest = new Trip[10];
 				    
-				    trip  = {t1,t2,t3};
-				  
+				    tripTest [0] = t1;
+				    tripTest [1] = t2;
+				    tripTest [2] = t3;
 				    
 				    Transport[] transportTest = new Transport[15];
-				    
-				    transportTest = {f1,f2,train1,train2,b1,b2};
+				    transportTest [0] = f1;
+				    transportTest [1] = f2;
+				    transportTest [2] = train1;
+				    transportTest [2] = train2;
+				    transportTest [2] = b1;
+				    transportTest [2] = b2;
+				   
 				    
 				    Accommodation [] accommodationTest = new Accommodation[15];
 				    
-				    accommodationTest = {hotel1, hotel2, hostel1, hostel2};
-				    
-				    double totalCostForTransport;
-				    for (int i =0; i < transport.length;i++) {
-				    	
-				    	totalCostForTransport += transport[i].calculateCost(1050);
-				    }
-				    
-				    double totalCostForAccommodation;
-                    for (int i =0; i < accommodation.length;i++) {
-				    	totalCostForAccommodation += accommodation[i].calculateCost(15);
+				    accommodationTest [0]= hotel1;
+				    accommodationTest [1]= hotel2;
+				    accommodationTest [2] = hostel1;
+				    accommodationTest [3] = hostel2;
+				
 				    }
 				}
 				
-				}
 					
 				
-				
-			}
+			
+			
 				
 				break;
 				}
@@ -652,7 +661,55 @@ public class driver {
 		
 			
 		} while (menuChoice!=3);
+			}
+			
+			//deep copy method of transport array
+		public static Transport[] copyTransportArray (Transport[] originalTransport) {
+			
+			if (originalTransport == null) {
+				return null;
+				
+			}
+			
+			Transport[] copyTransport = new Transport[originalTransport.length];
+			
+			for (int i=0; i< originalTransport.length; i++) {
+				if (originalTransport[i] instanceof Flight) {
+					copyTransport[i]= new Flight ((Flight) originalTransport[i]);
+				}
+				else if (originalTransport[i] instanceof Train) {
+					copyTransport[i] = new Train ((Train) originalTransport[i]);
+				}
+				else if (originalTransport[i] instanceof Bus) {
+					copyTransport[i] = new Bus ((Bus) originalTransport[i]);
+				}
+				
+			}
+			return copyTransport;
 		
+		}
+			//deep copy method of accommodation array
+
+			public static Accommodation[] copyAccommodationArray (Accommodation[] originalAccommodation) {
+				
+				if (originalAccommodation == null) {
+					return null;
+					
+				}
+				
+				Accommodation[] copyAccommodation = new Accommodation[originalAccommodation.length];
+				
+				for (int i=0; i< originalAccommodation.length; i++) {
+					if (originalAccommodation[i] instanceof Hotel) {
+						copyAccommodation[i]= new  Hotel ((Hotel) originalAccommodation[i]);
+					}
+					else if (originalAccommodation[i] instanceof Hostel) {
+						copyAccommodation[i] = new Hostel((Hostel) originalAccommodation[i]);
+					}
+					
+				}
+				return copyAccommodation;
+			}
 
 }
 
