@@ -9,7 +9,7 @@ public class Client {
 	private String emailAddress;
 	
 
-	//make sure EACH constructors increment idCounter,AFTER assigning clientID
+	//make sure EACH constructors increment idCounter, AFTER AFTER assigning clientID
 	public Client() {
 		clientID="C"+idCounter;
 		firstName=null;
@@ -65,7 +65,7 @@ public class Client {
 	}
 	
 	public String toString() {
-		return(firstName+" "+lastName+" ,@ "+emailAddress);
+		return("client id: "+clientID+", name: "+firstName+" "+lastName+", email address: "+emailAddress);
 	}
 	
 	//making sure the other object is not null, then making sure it is of the Client class, and finally making sure all attributes are equal (except ID)
