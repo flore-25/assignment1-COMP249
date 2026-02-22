@@ -1,8 +1,8 @@
 package TRAVEL;
 
 public class Hotel extends Accommodation {
-	
-	private int starRating;
+
+private int starRating;
 	
 	public Hotel() { //default constructor
 		super();
@@ -23,33 +23,25 @@ public class Hotel extends Accommodation {
 	}
 		
 	@Override
-	public double calculateCost(int nbOfDays) {
-		return super.getPricePerNight()*nbOfDays*0.15;
+	public double calculateCostPerNight() {
+		return (super.getPricePerNight()*1.1);
 	}
 	@Override
 	public String toString() {
-	return super.toString()+ "\n " 
+	return super.toString()+ "\n" 
 	+ "Star rating: "+ starRating; //calls the parent's (Accommodation) toString
 	}
-	@Override
-	public boolean equals(Accommodation other) {
-		
+
+	public boolean equals(Hotel other) {
 		if (other == null) 
 			return false;
-		
 		else if (!super.equals(other))
 			return false;
-		
-		else if(getClass()!= other.getClass())
-			
-			return false;
-		else
-		{ 
-			Hotel o = (Hotel) other;
-			return this.starRating == o.starRating;
-		}
+		else if(starRating==other.starRating)
+			return true;
+		return false;
 
+	}
 	
-	
-	}}
+}
 	

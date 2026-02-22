@@ -3,6 +3,7 @@ package TRAVEL;
 public class Bus extends Transport{
 	private String busCompany;
 	private int numberOfStops;
+	private double fare=3.5;
 
 	public Bus() { //default constructor
 		busCompany = "";
@@ -39,41 +40,28 @@ public class Bus extends Transport{
 	}
 
 	@Override
-	public double calculateCost(int km) {
-		double baseFare = 0.15;
-		return baseFare*km; //fictional value for baseFare price
+	public double calculateCost() {
+		return (fare+(numberOfStops*.15));
 	}
+	
 	@Override
 	public String toString() {
-	return super.toString()+ "\n " 
-	+ "Bus Company: "+ busCompany + "\n " 
-	+ "Number of stops: "+ numberOfStops; //calls the parent's (Transport) toString
+	return super.toString()+ "\n" //calls the parent's (Transport) toString
+	+ "Bus Company: "+ busCompany + "\n" 
+	+ "Number of stops: "+ numberOfStops; 
 	}
-	@Override
-	public boolean equals(Transport other) {
-		
+	
+	public boolean equals(Bus other) {
 		if (other == null) 
 			return false;
-		
 		else if (!super.equals(other))
 			return false;
-		
-		else if(getClass()!= other.getClass())
-			
-			return false;
-		else
-		{ 
-			Bus o = (Bus) other;
-			return this.busCompany == o.busCompany && this.numberOfStops == o.numberOfStops;
+		else if ((numberOfStops==other.numberOfStops) && (other.getBusCompany().equalsIgnoreCase(busCompany)))
+			return true;
+		return false;
 		}
 
 	
 	
-	}}
+}
 	
-
-
-
-
-
-

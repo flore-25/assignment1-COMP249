@@ -6,13 +6,13 @@ public abstract class Accommodation {
 	private String name;
 	private String locationCity;
 	private double pricePerNight;
+
 	
 	public Accommodation() {//default constructor
-		
 		accommodationID = "A"+idCounter;
         name = "";
 		locationCity = "";
-		pricePerNight = 0;
+		pricePerNight = 0.0;
 		idCounter++; // ID has to be incremented in each constructor!
 	}
 	
@@ -35,7 +35,7 @@ public abstract class Accommodation {
 		
 	}
 	//this method has to be defined in Hotel and Hostel child classes
-	public abstract double calculateCost(int nbOfDays);
+	public abstract double calculateCostPerNight();
 
 	public String getAccommodationID() {
 		return accommodationID;
@@ -66,32 +66,21 @@ public abstract class Accommodation {
 	}
 	
 	public String toString(){
-		return ("Name: "+ name +"/n"
-				+"ID type: " + accommodationID + "/n"
-				+"ID number: " + idCounter +"/n"
-				+"City: "+ locationCity + "/n"
+		return ("ID number: " + accommodationID + "\n"
+				+"Name: "+ name +"\n"
+				+"City: "+ locationCity + "\n"
 				+"Price per night: " + pricePerNight);
 	}
 	public boolean equals (Accommodation other) {
-		
 		if (other == null) 
 			return false;
-		
-		if (this.getClass()!= other.getClass()) 
+		if (other.getClass()!=Accommodation.class) 
 			return false;
-		
-		if (this.name.equalsIgnoreCase(other.name)&& this.locationCity.equalsIgnoreCase(other.locationCity)&& this.pricePerNight == other.pricePerNight) 
+				if (this.name.equalsIgnoreCase(other.name)&& this.locationCity.equalsIgnoreCase(other.locationCity)&& pricePerNight==other.pricePerNight) 
 			return true;
-	
 		return false;
 
 	
 	}
-	
-		
 }
-	
-
-	
-	
 

@@ -1,8 +1,8 @@
 package TRAVEL;
 
-public class Hostel extends Accommodation {
+public class Hostel extends Accommodation{
 
-	private int nbSharedBedsPerRoom;
+private int nbSharedBedsPerRoom;
 	
 	
 	public Hostel() { //default constructor
@@ -29,36 +29,28 @@ public class Hostel extends Accommodation {
 		
 	}
 	@Override
-	public double calculateCost(int nbOfDays) {
-		return super.getPricePerNight()*nbOfDays*0.10;
+	public double calculateCostPerNight() {
+		return (super.getPricePerNight()*.90);
 	}
 	@Override
 	public String toString() {
-	return super.toString()+ "\n " 
+	return super.toString()+ "\n" 
 	+ "Number of shared beds per room: "+ nbSharedBedsPerRoom; //calls the parent's (Accommodation) toString
 	}
-	@Override
-    public boolean equals(Accommodation other) {
-		
+
+	public boolean equals(Hostel other) {
 		if (other == null) 
 			return false;
-		
 		else if (!super.equals(other))
 			return false;
-		
-		else if (getClass()!= other.getClass())
-			
-			return false;
-		else
-		{ 
-			Hostel o = (Hostel) other;
-			return this.nbSharedBedsPerRoom == o.nbSharedBedsPerRoom;
-		}
+		else if (nbSharedBedsPerRoom==other.nbSharedBedsPerRoom)
+			return true;
+		return false;
+	}
 
 	
 	
 	
-	}
 	
 		
 }
