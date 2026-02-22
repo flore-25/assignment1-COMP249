@@ -92,12 +92,14 @@ public abstract class Transport {
 					+"Departure city: "+ departureCity + "\n"
 					+"Arrival city: " + arrivalCity);
 		}
-		public boolean equals (Transport other) {
+		
+		@Override
+		public boolean equals (Object other) {
 			if (other == null) 
 				return false;
-			else if (other.getClass()!=Transport.class) 
+			else if (this.getClass() != other.getClass()) 
 				return false;
-			else if (this.companyName.equalsIgnoreCase(other.companyName)&& this.departureCity.equalsIgnoreCase(other.departureCity)&& arrivalCity.equalsIgnoreCase(other.arrivalCity))
+			else if ((companyName.equalsIgnoreCase(((Transport)other).companyName))&&(departureCity.equalsIgnoreCase(((Transport)other).departureCity))&&(arrivalCity.equalsIgnoreCase(((Transport)other).arrivalCity)))
 				return true;
 			return false;
 		}

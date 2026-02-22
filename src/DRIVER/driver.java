@@ -687,7 +687,13 @@ public class driver {
 			    	System.out.println("");
 			    }
 			    System.out.println("\n");
-				
+			    
+			    //add transportation and accommodation to trips
+				t1.setAccommodation(hostel2);
+				t2.setAccommodation(hotel1);
+				t1.setTransport(f1);
+				t3.setTransport(train2);
+				t2.setTransport(b1);
 			    
 			    //calculate total cost of trips
 			    for (int i=0;i<trip2.length;i++) {
@@ -698,6 +704,15 @@ public class driver {
 			    //display most expensive trip
 				Trip.mostExpensiveTrip(trip2);
 			    System.out.println("\n");
+			    
+			    //compare objects from different classes
+				System.out.println("COMPARING OBJECTS FROM DIFFERENT CLASSES: "+t2.equals(f1)+ ", "+train1.equals(hotel1));
+				
+
+				//compare objects of the same class with and with different attributes and with identical attributes
+				System.out.println("COMPARING OBJECTS FROM SAME CLASS, DIFFERENT ATTRIBUTES: "+ f1.equals(f2));
+				System.out.println("COMPARING OBJECTS FROM SAME CLASS, SAME ATTRIBUTES: "+f2.equals(f3));
+			
 
 				
 			    //deep copy transportation array
@@ -726,13 +741,7 @@ public class driver {
 					 System.out.println(transport3[i]);
 					 System.out.println("");
 				}
-			    
-				//compare objects from different classes
-
-				//compare objects of the same class with and with different attributes and with identical attributes
 				
-				//Fill arrays for: Clients, Trips, Transportation options, Accommodations
-			    
 				break;
 				}
 			case 3:{

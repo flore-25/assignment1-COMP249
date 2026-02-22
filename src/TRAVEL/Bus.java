@@ -51,12 +51,13 @@ public class Bus extends Transport{
 	+ "Number of stops: "+ numberOfStops; 
 	}
 	
-	public boolean equals(Bus other) {
+	@Override
+	public boolean equals(Object other) {
 		if (other == null) 
 			return false;
 		else if (!super.equals(other))
 			return false;
-		else if ((numberOfStops==other.numberOfStops) && (other.getBusCompany().equalsIgnoreCase(busCompany)))
+		else if ((numberOfStops==((Bus)other).numberOfStops) && (((Bus)other).getBusCompany().equalsIgnoreCase(busCompany)))
 			return true;
 		return false;
 		}

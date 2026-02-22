@@ -35,16 +35,16 @@ public class Flight extends Transport {
 	+ "Luggage allowance: "+ luggageAllowance; //calls the parent's (Transport) toString
 	}
 	
-	public boolean equals(Flight other) {
+	@Override
+	public boolean equals(Object other) {
 		if (other == null) 
 			return false;
 		else if (!super.equals(other))
 			return false;
-		else if ((airlineName.equalsIgnoreCase(other.airlineName))&&(luggageAllowance==other.luggageAllowance))
+		else if ((airlineName.equalsIgnoreCase(((Flight)other).airlineName))&&(luggageAllowance==((Flight)other).luggageAllowance))
 			return true;
 		return false;
-		
-}
+	}
 	
 
 }

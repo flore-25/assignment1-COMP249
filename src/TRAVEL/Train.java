@@ -61,12 +61,13 @@ public class Train extends Transport {
 	+ "Seat class: "+ seatClass; 
 	}
 	
-	public boolean equals(Train other) {
+	@Override
+	public boolean equals(Object other) {
 		if (other == null) 
 			return false;
 		else if (!super.equals(other))
 			return false;
-		else if ((trainType.equalsIgnoreCase(other.trainType))&&(seatClass==other.seatClass))
+		else if ((trainType.equalsIgnoreCase(((Train)other).trainType))&&(seatClass==((Train)other).seatClass))
 			return true;
 		return false;
 	}

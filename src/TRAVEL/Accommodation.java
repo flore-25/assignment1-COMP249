@@ -71,12 +71,14 @@ public abstract class Accommodation {
 				+"City: "+ locationCity + "\n"
 				+"Price per night: " + pricePerNight);
 	}
-	public boolean equals (Accommodation other) {
+	
+	@Override
+	public boolean equals (Object other) {
 		if (other == null) 
 			return false;
-		if (other.getClass()!=Accommodation.class) 
+		if (this.getClass() != other.getClass())
 			return false;
-				if (this.name.equalsIgnoreCase(other.name)&& this.locationCity.equalsIgnoreCase(other.locationCity)&& pricePerNight==other.pricePerNight) 
+				if (name.equalsIgnoreCase(((Accommodation)other).name)&& locationCity.equalsIgnoreCase(((Accommodation)other).locationCity)&& pricePerNight==((Accommodation)other).pricePerNight) 
 			return true;
 		return false;
 

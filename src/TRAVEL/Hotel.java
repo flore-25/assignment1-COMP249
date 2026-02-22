@@ -32,12 +32,13 @@ private int starRating;
 	+ "Star rating: "+ starRating; //calls the parent's (Accommodation) toString
 	}
 
-	public boolean equals(Hotel other) {
+	@Override
+	public boolean equals(Object other) {
 		if (other == null) 
 			return false;
 		else if (!super.equals(other))
 			return false;
-		else if(starRating==other.starRating)
+		else if(starRating==((Hotel)other).starRating)
 			return true;
 		return false;
 

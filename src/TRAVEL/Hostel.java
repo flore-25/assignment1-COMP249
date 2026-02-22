@@ -15,7 +15,7 @@ private int nbSharedBedsPerRoom;
 	}
 	
 	
-	public Hostel (Hostel other) {//copy constructor
+	public Hostel (Hostel other) { //copy constructor
 		super(other);
 		this.nbSharedBedsPerRoom = other.nbSharedBedsPerRoom ;
 	}
@@ -37,13 +37,14 @@ private int nbSharedBedsPerRoom;
 	return super.toString()+ "\n" 
 	+ "Number of shared beds per room: "+ nbSharedBedsPerRoom; //calls the parent's (Accommodation) toString
 	}
-
-	public boolean equals(Hostel other) {
+	
+	@Override
+	public boolean equals(Object other) {
 		if (other == null) 
 			return false;
 		else if (!super.equals(other))
 			return false;
-		else if (nbSharedBedsPerRoom==other.nbSharedBedsPerRoom)
+		else if (nbSharedBedsPerRoom==((Hostel)other).nbSharedBedsPerRoom)
 			return true;
 		return false;
 	}
